@@ -1,6 +1,6 @@
 {
   "name": "allium-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Enterprise-grade NestJS starter featuring Onion Architecture, DDD, CQRS, and SOLID principles with built-in security and observability.",
   "author": "lucifergotmad",
   "private": true,
