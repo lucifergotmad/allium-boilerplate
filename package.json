@@ -4,7 +4,7 @@
   "description": "Enterprise-grade NestJS starter featuring Onion Architecture, DDD, CQRS, and SOLID principles with built-in security and observability.",
   "author": "lucifergotmad",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
