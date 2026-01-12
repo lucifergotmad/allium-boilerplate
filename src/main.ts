@@ -37,10 +37,7 @@ async function bootstrap() {
   app.enableCors();
 
   app.setGlobalPrefix('api', {
-    exclude: [
-      { path: 'health', method: RequestMethod.GET },
-      { path: 'info', method: RequestMethod.GET },
-    ],
+    exclude: [{ path: 'health', method: RequestMethod.GET }],
   });
 
   app.enableVersioning({
