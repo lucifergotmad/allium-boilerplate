@@ -1,0 +1,373 @@
+{
+	"info": {
+		"_postman_id": "2ea623fa-6bc9-4f93-a212-ab01aedb37e3",
+		"name": "Allium Boilerplate API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12483205"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"if (jsonData.data && jsonData.data.accessToken && jsonData.data.refreshToken) {",
+									"    pm.environment.set(\"ACCESS_TOKEN\", jsonData.data.accessToken);",
+									"    pm.environment.set(\"REFRESH_TOKEN\", jsonData.data.refreshToken);",
+									"",
+									"    console.log(\"Access and Refresh Token is updated successfully\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"lucifergotmad@gmail.com\",\n    \"password\": \"Binary1010\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URI}}/v1/auth/login",
+							"host": [
+								"{{BASE_URI}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"if (jsonData.data && jsonData.data.accessToken && jsonData.data.refreshToken) {",
+									"    pm.environment.set(\"ACCESS_TOKEN\", jsonData.data.accessToken);",
+									"    pm.environment.set(\"REFRESH_TOKEN\", jsonData.data.refreshToken);",
+									"",
+									"    console.log(\"Access and Refresh Token is updated successfully\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"amateur.fullstackdev@gmail.com\",\n    \"password\": \"Binary1010*\",\n    \"firstName\": \"Allein\",\n    \"lastName\": \"Stark\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URI}}/v1/auth/register",
+							"host": [
+								"{{BASE_URI}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"if (jsonData.data && jsonData.data.accessToken && jsonData.data.refreshToken) {",
+									"    pm.environment.set(\"ACCESS_TOKEN\", jsonData.data.accessToken);",
+									"    pm.environment.set(\"REFRESH_TOKEN\", jsonData.data.refreshToken);",
+									"",
+									"    console.log(\"Access and Refresh Token is updated successfully\");",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMTliYTkxNy05ODRjLTcwZmUtYTdkOC1lZGU2MDE3NGRlYTciLCJlbWFpbCI6Imx1Y2lmZXJnb3RtYWRAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwidHlwZSI6IlJFRlJFU0giLCJpYXQiOjE3NjgxODcxODQsImV4cCI6MTc2ODc5MTk4NH0.ou06WNBcx5voYtWjNaJhYKKZTh44eB6xaOU2C9QZyx8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URI}}/v1/auth/refresh",
+							"host": [
+								"{{BASE_URI}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URI}}/v1/users?page=1&limit=10",
+							"host": [
+								"{{BASE_URI}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URI}}/v1/users/019ba8dc-c970-76a8-8aed-08e4084cbbc7",
+							"host": [
+								"{{BASE_URI}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"019ba8dc-c970-76a8-8aed-08e4084cbbc7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URI}}/v1/users/019ba8dc-c970-76a8-8aed-08e4084cbbc7",
+							"host": [
+								"{{BASE_URI}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"019ba8dc-c970-76a8-8aed-08e4084cbbc7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"const crypto = require('crypto-js');",
+					"",
+					"const apiKey = pm.environment.get(\"SIGNATURE_API_KEY\");",
+					"const secretKey = pm.environment.get(\"SIGNATURE_SECRET_KEY\");",
+					"",
+					"const requestUrl = pm.request.url.toString();",
+					"",
+					"const isPublicEndpoint = requestUrl.includes(\"login\") || requestUrl.includes(\"register\");",
+					"if (isPublicEndpoint) console.log(\"ℹ️ Public Endpoint detected (Login/Register). Ignoring Access Token.\");",
+					"",
+					"const accessToken = !isPublicEndpoint ? pm.environment.get(\"ACCESS_TOKEN\") ?? \"\" : \"\";",
+					"",
+					"if (!apiKey || !secretKey) {",
+					"    console.warn(\"⚠️ Signature Config (API Key/Secret) missing in Environment!\");",
+					"}",
+					"",
+					"const timestamp = Math.floor(Date.now() / 1000).toString();",
+					"",
+					"const payload = `${apiKey}:${accessToken}:${timestamp}`;",
+					"",
+					"console.log(`Signing Payload: [${payload}]`);",
+					"",
+					"if (secretKey) {",
+					"    const signature = crypto.HmacSHA256(payload, secretKey).toString(crypto.enc.Hex);",
+					"",
+					"    pm.environment.set(\"SIGNATURE\", signature);",
+					"    pm.environment.set(\"TIMESTAMP\", timestamp);",
+					"",
+					"    pm.request.headers.add({ key: 'x-signature', value: signature });",
+					"    pm.request.headers.add({ key: 'x-timestamp', value: timestamp });",
+					"",
+					"    console.log(\"Signature injected: \", signature)",
+					"} else {",
+					"    console.log(\"Skip signing: No Secret Key\")",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
